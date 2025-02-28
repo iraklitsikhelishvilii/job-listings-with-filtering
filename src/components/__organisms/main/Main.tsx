@@ -41,7 +41,11 @@ function Main() {
   };
   return (
     <>
-      <div className={`relative bg-[#EFFAFA] flex    flex-col  w-[100%]  `}>
+      <div
+        className={`relative bg-[#EFFAFA] flex    flex-col  w-[100%] ${
+          array.length < 3 ? "h-[100vh]" : ""
+        }  `}
+      >
         <div className="w-[100%]">
           <img className=" w-[100%]" src={img} alt="" />
           {array.length > 0 && (

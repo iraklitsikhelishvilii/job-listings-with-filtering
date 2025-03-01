@@ -23,14 +23,23 @@ function Main() {
       setarray(newarray);
     }
   };
-  console.log(array);
-  const filteredArray = Data.filter(
-    (item) =>
-      (item.role && array.includes(item.role)) ||
-      (item.level && array.includes(item.level)) ||
-      item.languages.some((lang) => array.includes(lang)) ||
-      item.tools.some((tool) => array.includes(tool))
-  );
+
+  const filteredArray = Data.filter((item) => {
+    return (
+      (array.includes(item.role) ||
+        array.includes(item.level) ||
+        item.languages.filter((lang) => array.includes(lang)).length > 0 ||
+        item.tools.filter((tool) => array.includes(tool)).length > 0) &&
+      array.every(
+        (filter) =>
+          item.role === filter ||
+          item.level === filter ||
+          item.languages.includes(filter) ||
+          item.tools.includes(filter)
+      )
+    );
+  });
+
   let Info = Data;
   if (array.length > 0) {
     Info = filteredArray;

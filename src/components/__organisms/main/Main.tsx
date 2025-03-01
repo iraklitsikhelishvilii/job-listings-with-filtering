@@ -45,15 +45,15 @@ function Main() {
   return (
     <>
       <div
-        className={`relative bg-[#EFFAFA] flex    flex-col  w-[100%] h-[100vh]
+        className={`relative bg-[#EFFAFA] flex    flex-col  w-[100%] h-[100vh] items-center
             `}
       >
-        <div className="w-[100%]">
+        <div className="w-[100%] flex justify-center items-center flex-col ">
           <img className=" w-[100%]" src={img} alt="" />
           {array.length > 0 && (
-            <div className="px-[165px]  max-[850px]:px-[24px] ">
-              <div className="   flex  bg-[#fff] rounded-[5px] py-[20px]  items-center gap-[15px] px-[30px] shadow-[0px_15px_20px_-5px_#0D718226] justify-between ">
-                <div className=" flex  py-[20px] flex-wrap  items-center gap-[15px] px-[30px]   ">
+            <div className="px-[165px] flex  justify-center  w-[100%]  max-[850px]:px-[24px]  ">
+              <div className="  flex  max-w-[1110px] w-[100%] bg-[#fff] rounded-[5px]  items-center gap-[15px] px-[30px] shadow-[0px_15px_20px_-5px_#0D718226] justify-between ">
+                <div className=" flex  py-[20px] flex-wrap  items-center gap-[15px]    ">
                   {array.map((info, key) => (
                     <div
                       className="bg-[rgba(92,165,165,0.1)] flex pl-[10px] justify-between items-center rounded-[4px] max-w-[150px] gap-[15px]"
@@ -64,7 +64,7 @@ function Main() {
                       </p>
                       <button
                         onClick={() => Remove(info)}
-                        className="w-[32px] h-[32px] bg-[#2B3939] justify-center items-center flex rounded-[4px]"
+                        className="w-[32px] h-[32px] bg-[#5CA5A5] justify-center items-center flex rounded-[4px] hover:bg-[#2B3939] ease-in-out duration-[0.4s] cursor-pointer"
                       >
                         <img src={x_img} alt="" />
                       </button>
@@ -73,7 +73,7 @@ function Main() {
                 </div>
                 <button
                   onClick={Clear}
-                  className="text-[#5CA5A5] text-[16px] font-[700] underline cursor-pointer"
+                  className="text-[#7C8F8F] text-[16px] font-[700]  cursor-pointer hover:text-[#5CA5A5] hover:underline  ease-in-out duration-[0.4s]"
                 >
                   Clear
                 </button>
@@ -82,7 +82,7 @@ function Main() {
           )}
         </div>
 
-        <div className="pt-[30px] overflow-auto mt-[50px] gap-[20px] flex flex-col px-[165px] max-[1250px]:gap-[40px] max-[850px]:px-[24px]">
+        <div className="pt-[30px] w-[100%]  overflow-auto mt-[50px] gap-[20px] flex flex-col px-[165px] max-[1250px]:gap-[40px] max-[850px]:px-[24px] items-center  pb-[30px]">
           {Info.map((item, key) => {
             let logo;
             if (item.company === "Photosnap") {
@@ -109,7 +109,7 @@ function Main() {
             return (
               <div
                 key={key}
-                className=" relative w-[100%] bg-[#fff] rounded-[5px] py-[32px] flex items-center justify-between px-[40px] shadow-[0px_15px_20px_-5px_#0D718226] max-[1250px]:flex-col max-[1250px]:items-start max-[1250px]:gap-[10px]"
+                className=" relative max-w-[1110px]  w-[100%] bg-[#fff] rounded-[5px] py-[32px] flex items-center justify-between px-[40px] shadow-[0px_15px_20px_-5px_#0D718226] max-[1250px]:flex-col max-[1250px]:items-start max-[1250px]:gap-[10px]"
               >
                 <div className="flex items-center justify-center gap-[15px] ">
                   <img
@@ -117,9 +117,9 @@ function Main() {
                     alt=""
                     className="max-[1250px]:w-[48px] max-[1250px]:h-[48px] max-[1250px]:absolute max-[1250px]:top-[-25px] left-[24px]"
                   />
-                  <div className=" flex flex-col">
+                  <div className=" flex flex-col max-[420px]:gap-[12px]">
                     <div className=" flex items-center gap-[10px] max-[1250px]:gap-[33px]">
-                      <p className="text-[18px] font-[700] text-[#5CA5A5]">
+                      <p className="text-[18px] font-[700] text-[#5CA5A5] max-[420px]:text-[13px]">
                         {item.company}
                       </p>
                       <div className="flex gap-[8px]">
@@ -139,19 +139,19 @@ function Main() {
                         )}
                       </div>
                     </div>
-                    <p className="text-[22px] text-[#2B3939] font-[700]">
+                    <p className="text-[22px] text-[#2B3939] font-[700]  max-[420px]:text-[15px] hover:text-[#5CA5A5] cursor-pointer ease-in-out duration-[0.4s]">
                       {item.position}
                     </p>
                     <div className="flex  items-center gap-[5px]">
-                      <p className="text-[18px] font-[500] text-[#7C8F8F] tracking-[-1.4px]">
+                      <p className="text-[18px] font-[500] text-[#7C8F8F] tracking-[-1.4px]  max-[420px]:text-[16px]">
                         {item.postedAt}
                       </p>
                       <img src={dot_img} alt="" />
-                      <p className="text-[18px] font-[500] text-[#7C8F8F] tracking-[-1.4px]">
+                      <p className="text-[18px] font-[500] text-[#7C8F8F] tracking-[-1.4px] max-[420px]:text-[16px]">
                         {item.contract}
                       </p>
                       <img src={dot_img} alt="" />
-                      <p className="text-[18px] font-[500] text-[#7C8F8F] tracking-[-1.4px]">
+                      <p className="text-[18px] font-[500] text-[#7C8F8F] tracking-[-1.4px] max-[420px]:text-[16px]">
                         {item.location}
                       </p>
                     </div>
@@ -161,16 +161,16 @@ function Main() {
                 <div className=" flex gap-[16px] flex-wrap max-[1250px]:mt-[15px] ">
                   <button
                     onClick={() => AddInArray(item.role)}
-                    className=" px-[5px] py-[5px] bg-[rgba(92,165,165,0.1)] items-center justify-center "
+                    className=" px-[5px] py-[5px] bg-[rgba(92,165,165,0.1)] items-center justify-center button"
                   >
-                    <p className="text-[18px] font-[700] text-[#5CA5A5]">
+                    <p className="text-[18px] font-[700] text-[#5CA5A5] button_p">
                       {item.role}
                     </p>
                   </button>
-                  <button className=" px-[5px] py-[5px] bg-[rgba(92,165,165,0.1)] items-center justify-center ">
+                  <button className=" px-[5px] py-[5px] bg-[rgba(92,165,165,0.1)] items-center justify-center button">
                     <p
                       onClick={() => AddInArray(item.level)}
-                      className="text-[18px] font-[700] text-[#5CA5A5]"
+                      className="text-[18px] font-[700] text-[#5CA5A5] button_p"
                     >
                       {item.level}
                     </p>
@@ -179,9 +179,9 @@ function Main() {
                     <button
                       onClick={() => AddInArray(tool)}
                       key={key}
-                      className=" px-[5px] py-[5px] bg-[rgba(92,165,165,0.1)] items-center justify-center "
+                      className=" px-[5px] py-[5px] bg-[rgba(92,165,165,0.1)] items-center justify-center button"
                     >
-                      <p className="text-[18px] font-[700] text-[#5CA5A5]">
+                      <p className="text-[18px] font-[700] text-[#5CA5A5] button_p">
                         {tool}
                       </p>
                     </button>
@@ -190,9 +190,9 @@ function Main() {
                     <button
                       onClick={() => AddInArray(lang)}
                       key={key}
-                      className=" px-[5px] py-[5px] bg-[rgba(92,165,165,0.1)] items-center justify-center "
+                      className=" px-[5px] py-[5px] bg-[rgba(92,165,165,0.1)] items-center justify-center button"
                     >
-                      <p className="text-[18px] font-[700] text-[#5CA5A5]">
+                      <p className="text-[18px] font-[700] text-[#5CA5A5] button_p">
                         {lang}
                       </p>
                     </button>

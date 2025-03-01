@@ -3,3 +3,12 @@
 * {
   font-family: "League Spartan", sans-serif;
 }
+.button:hover {
+  background-color: #5ca5a5;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+}
+
+.button:hover .button_p {
+  color: #fff;
+}

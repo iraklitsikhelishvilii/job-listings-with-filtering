@@ -39,40 +39,50 @@ function Main() {
     const newarray = array.filter((i) => i != index);
     setarray(newarray);
   };
+  const Clear = () => {
+    setarray([]);
+  };
   return (
     <>
       <div
-        className={`relative bg-[#EFFAFA] flex    flex-col  w-[100%] ${
-          array.length < 3 ? "h-[100vh]" : ""
-        }  `}
+        className={`relative bg-[#EFFAFA] flex    flex-col  w-[100%] h-[100vh]
+            `}
       >
         <div className="w-[100%]">
           <img className=" w-[100%]" src={img} alt="" />
           {array.length > 0 && (
-            <div className="px-[100px] sticky flex-wrap">
-              <div className="   flex  bg-[#fff] rounded-[5px] h-[72px]  items-center gap-[15px] px-[30px] shadow-[0px_15px_20px_-5px_#0D718226]  ">
-                {array.map((info, key) => (
-                  <div
-                    className="bg-[rgba(92,165,165,0.1)] flex pl-[10px] justify-between items-center rounded-[4px] max-w-[150px] gap-[15px]"
-                    key={key}
-                  >
-                    <p className="text-[16px] font-[700] text-[#5CA5A5]">
-                      {info}
-                    </p>
-                    <button
-                      onClick={() => Remove(info)}
-                      className="w-[32px] h-[32px] bg-[#2B3939] justify-center items-center flex rounded-[4px]"
+            <div className="px-[165px]  max-[850px]:px-[24px] ">
+              <div className="   flex  bg-[#fff] rounded-[5px] py-[20px]  items-center gap-[15px] px-[30px] shadow-[0px_15px_20px_-5px_#0D718226] justify-between ">
+                <div className=" flex  py-[20px] flex-wrap  items-center gap-[15px] px-[30px]   ">
+                  {array.map((info, key) => (
+                    <div
+                      className="bg-[rgba(92,165,165,0.1)] flex pl-[10px] justify-between items-center rounded-[4px] max-w-[150px] gap-[15px]"
+                      key={key}
                     >
-                      <img src={x_img} alt="" />
-                    </button>
-                  </div>
-                ))}
+                      <p className="text-[16px] font-[700] text-[#5CA5A5]">
+                        {info}
+                      </p>
+                      <button
+                        onClick={() => Remove(info)}
+                        className="w-[32px] h-[32px] bg-[#2B3939] justify-center items-center flex rounded-[4px]"
+                      >
+                        <img src={x_img} alt="" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  onClick={Clear}
+                  className="text-[#5CA5A5] text-[16px] font-[700] underline cursor-pointer"
+                >
+                  Clear
+                </button>
               </div>
             </div>
           )}
         </div>
 
-        <div className=" mt-[50px] gap-[20px] flex flex-col px-[100px]">
+        <div className="pt-[30px] overflow-auto mt-[50px] gap-[20px] flex flex-col px-[165px] max-[1250px]:gap-[40px] max-[850px]:px-[24px]">
           {Info.map((item, key) => {
             let logo;
             if (item.company === "Photosnap") {
@@ -99,29 +109,35 @@ function Main() {
             return (
               <div
                 key={key}
-                className="w-[100%] bg-[#fff] rounded-[5px] h-[152px] flex items-center justify-between px-[30px] shadow-[0px_15px_20px_-5px_#0D718226]"
+                className=" relative w-[100%] bg-[#fff] rounded-[5px] py-[32px] flex items-center justify-between px-[40px] shadow-[0px_15px_20px_-5px_#0D718226] max-[1250px]:flex-col max-[1250px]:items-start max-[1250px]:gap-[10px]"
               >
-                <div className="flex items-center justify-center gap-[15px]">
-                  <img src={logo} alt="" />
+                <div className="flex items-center justify-center gap-[15px] ">
+                  <img
+                    src={logo}
+                    alt=""
+                    className="max-[1250px]:w-[48px] max-[1250px]:h-[48px] max-[1250px]:absolute max-[1250px]:top-[-25px] left-[24px]"
+                  />
                   <div className=" flex flex-col">
-                    <div className=" flex items-center gap-[10px]">
+                    <div className=" flex items-center gap-[10px] max-[1250px]:gap-[33px]">
                       <p className="text-[18px] font-[700] text-[#5CA5A5]">
                         {item.company}
                       </p>
-                      {item.new && (
-                        <div className="w-[51px] h-[24px] rounded-[12px] bg-[#5CA5A5] flex items-center justify-center">
-                          <p className="text-[14px] font-[700] text-[#fff]">
-                            NEW!
-                          </p>
-                        </div>
-                      )}
-                      {item.featured && (
-                        <div className="w-[79px] h-[24px] rounded-[12px] bg-[#2B3939] flex items-center justify-center">
-                          <p className="text-[14px] font-[700] text-[#fff]">
-                            FEATURED
-                          </p>
-                        </div>
-                      )}
+                      <div className="flex gap-[8px]">
+                        {item.new && (
+                          <div className="w-[51px] h-[24px] rounded-[12px] bg-[#5CA5A5] flex items-center justify-center">
+                            <p className="text-[14px] font-[700] text-[#fff]">
+                              NEW!
+                            </p>
+                          </div>
+                        )}
+                        {item.featured && (
+                          <div className="px-[8px] h-[24px] rounded-[12px] bg-[#2B3939] flex items-center justify-center">
+                            <p className="text-[14px] font-[700] text-[#fff]">
+                              FEATURED
+                            </p>
+                          </div>
+                        )}
+                      </div>
                     </div>
                     <p className="text-[22px] text-[#2B3939] font-[700]">
                       {item.position}
@@ -141,7 +157,8 @@ function Main() {
                     </div>
                   </div>
                 </div>
-                <div className=" flex gap-[10px]">
+                <div className="bg-[#B7C4C4] w-[100%] h-[1px] mt-[15px] min-[1250px]:hidden"></div>
+                <div className=" flex gap-[16px] flex-wrap max-[1250px]:mt-[15px] ">
                   <button
                     onClick={() => AddInArray(item.role)}
                     className=" px-[5px] py-[5px] bg-[rgba(92,165,165,0.1)] items-center justify-center "
